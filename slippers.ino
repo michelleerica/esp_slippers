@@ -7,6 +7,7 @@
 const char *ssid = "milo-guest";
 const char *password = "arthouse-goldblum-pie";
 char *x;
+
 /*Websockets */
 AsyncWebServer server(80);
 AsyncWebSocket ws("/ws");
@@ -21,7 +22,6 @@ void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventTyp
     Serial.println("OnWsEvent called");
     if (type == WS_EVT_CONNECT)
     {
-
         Serial.println("Websocket client connection received");
         //    client->text("Hello from ESP32 Server");
     }
@@ -76,8 +76,7 @@ void setup()
     {
         /* There was a problem detecting the ADXL345 ... check your connections */
         Serial.println("Ooops, no LSM303 detected ... Check your wiring!");
-        while (1)
-            ;
+        while (1);
     }
 
     /* Display some basic information on this sensor */
@@ -140,23 +139,10 @@ void loop()
         sensors_event_t event;
         accel.getEvent(&event);
 
-        /* Display the results (acceleration is measured in m/s^2) */
-        char resultX[8]; // Buffer big enough for 7-character float
-        char resultY[8];
-        char resultZ[8];
-        char resultHeading[8];
-
+        /* Capture accelerometer data */
         float x = event.acceleration.x;
         float y = event.acceleration.y;
         float z = event.acceleration.z;
-
-        dtostrf(x, 6, 2, resultX);
-        dtostrf(y, 6, 2, resultY);
-        dtostrf(z, 6, 2, resultZ);
-
-        ws.textAll(resultX);
-        ws.textAll(resultY);
-        ws.textAll(resultZ);
 
         /* MAG: Get a new sensor event */
         sensors_event_t eventMag;
@@ -172,9 +158,12 @@ void loop()
         {
             heading = 360 + heading;
         }
-        dtostrf(z, 6, 2, resultHeading);
 
-        ws.textAll(resultHeading);
+        // Send the sensor data
+        char buffer[2048];
+        snprintf(buffer, sizeof(buffer), "x: %f, y: %f, z: %f, compass: %f", x, y, z, heading);
+
+        ws.textAll(buffer);
 
         delay(500);
     }
