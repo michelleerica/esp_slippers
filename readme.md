@@ -2,6 +2,9 @@
 
 Reference: [dfrobot](https://www.dfrobot.com/blog-1117.html)
 
+### To run kafka
+`source .venv/bin/activate` To create virtual environment for python
+
 ### Arduino Dependencies: ###
 - [ESPAsyncWebServer](https://github.com/me-no-dev/ESPAsyncWebServer)
 - [AsyncTCP](https://github.com/me-no-dev/AsyncTCP)
@@ -11,4 +14,6 @@ For arduino dependencies, you will need to download the repo as zip, and then ad
 For more details, see [here](https://www.dfrobot.com/blog-813.html)
 
 ### Python Dependencies: ###
-- websocket-client `pip install websocket`
+`python3 -m venv .venv`
+`source .venv/bin/activate`
+`pip install -r requirements.txt`
