@@ -1,0 +1,8 @@
+body {
+      padding: 0;
+      margin: 0;
+      }
+      
+.dg.main {
+  z-index: 10000;
+}
