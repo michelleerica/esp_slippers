@@ -89,7 +89,6 @@ function webSocketInvoke() {
         ws.onmessage = function (evt) { 
             const message = evt.data;
             const sensorData = objectConverter(message);
-            colorCounter++;
             drawCircles(sensorData.x, sensorData.y, sensorData.z);
         };
         
