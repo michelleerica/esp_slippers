@@ -2,10 +2,19 @@
 
 Reference: [dfrobot](https://www.dfrobot.com/blog-1117.html)
 
-### To run kafka
+### To run 
+#### kafka
 `source .venv/bin/activate` To create virtual environment for python
-`./backend/producer.py`
+(You will also need to run the broker - see below)
 
+- Producer: `python ./backend/producer.py`
+- Consumer + websockets: `mode ./backend/consumer.py`
+
+#### front end 
+Navigate to `frontend/index.html` in the browser
+
+
+## Dependencies ##
 ### Arduino Dependencies: ###
 - [ESPAsyncWebServer](https://github.com/me-no-dev/ESPAsyncWebServer)
 - [AsyncTCP](https://github.com/me-no-dev/AsyncTCP)
@@ -19,7 +28,10 @@ For more details, see [here](https://www.dfrobot.com/blog-813.html)
 `source .venv/bin/activate`
 `pip install -r requirements.txt`
 
-### Dummy Kafka Broker & CLI consumer ###
+## Node Dependencies ### 
+`kafka node`
+
+## Dummy Kafka Broker ##
 [Tutorial](https://kafka-tutorials.confluent.io/kafka-console-consumer-producer-basics/kafka.html)
 `cd kafka-broker`
 `docker-compose up -d`
