@@ -8,7 +8,7 @@ Reference: [dfrobot](https://www.dfrobot.com/blog-1117.html)
 (You will also need to run the broker - see below)
 
 - Producer: `python ./backend/producer.py`
-- Consumer + websockets: `mode ./backend/consumer.py`
+- Consumer + websockets: `node ./backend/consumer.js`
 
 #### front end 
 Navigate to `frontend/index.html` in the browser
