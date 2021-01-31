@@ -54,26 +54,26 @@ if __name__ == '__main__':
             print("Produced record to topic {} partition [{}] @ offset {}"
                   .format(msg.topic(), msg.partition(), msg.offset()))
 
-    # ws = websocket.WebSocket()
-    # ws.connect("ws://192.168.179.20/ws")
-    # print("connected")
+    ws = websocket.WebSocket()
+    ws.connect("ws://192.168.210.221/ws")
+    print("connected")
 
     # For stub
-    x = 0
-    y = 0
-    z = 0
+    # x = 0
+    # y = 0
+    # z = 0
 
     while True:
         # Actual code
-        # result = ws.recv()
-        # print(result)
+        result = ws.recv()
+        print(result)
 
         # Stub code - emit event every second
-        result = f'x: {x}, y: {y}, z: {z}, compass: 208.944199'
-        x += 100
-        y += 100
-        z += 1
-        time.sleep(1)
+        # result = f'x: {x}, y: {y}, z: {z}, compass: 208.944199'
+        # x += 100
+        # y += 100
+        # z += 1
+        # time.sleep(1)
 
         record_key = "esp_32"
         record_value = result

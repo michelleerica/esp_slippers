@@ -50,8 +50,8 @@ function checkWrapping() {
 function drawCircles(x, y, z) {
     background(0); // clears screen
 
-    drawPointer.x = x % windowWidth;
-    drawPointer.y = y % windowHeight;
+    drawPointer.x = (x * 100) % windowWidth;
+    drawPointer.y = (y * 100) % windowHeight;
     drawPointer.z = (z * 5) % 100;
     checkWrapping();
 
@@ -89,6 +89,7 @@ function webSocketInvoke() {
         ws.onmessage = function (evt) { 
             const message = evt.data;
             const sensorData = objectConverter(message);
+            console.log('sensorData:', sensorData.x, sensorData.y)
             drawCircles(sensorData.x, sensorData.y, sensorData.z);
         };
         
