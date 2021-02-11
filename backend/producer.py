@@ -55,7 +55,7 @@ if __name__ == '__main__':
                   .format(msg.topic(), msg.partition(), msg.offset()))
 
     ws = websocket.WebSocket()
-    ws.connect("ws://192.168.210.221/ws")
+    ws.connect("ws://192.168.74.221/ws")
     print("connected")
 
     # For stub

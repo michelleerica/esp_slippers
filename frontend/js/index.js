@@ -127,17 +127,17 @@ function drawCircles(x, y, z) {
       circleIndex = (circleIndex + 1) % MAX_CIRCLES;
       colorCounter++;
 
-    // for (let i = 0; i < circles.length; i++) {
-    //   var c = circles[i];
-    //   fill(c.hue, 100, c.bright, c.opacity);
-    //   ellipse(
-    //     center.x + c.x,  // what the accelerometer calls 'y' is actually left-right horizontal movement
-    //     center.y + c.y,  // use accel up/down for screen y axis
-    //     c.size,
-    //     c.size); // draws circle
-    // } // for
-      fill(colorCounter % 255, 100, 255, (colorCounter + 75) % 255);
-      ellipse( center.x + drawPointer.x, center.y + drawPointer.y, drawPointer.z, drawPointer.z);
+    for (let i = 0; i < circles.length; i++) {
+      var c = circles[i];
+      fill(c.hue, 100, c.bright, c.opacity);
+      ellipse(
+        center.x + c.x,  // what the accelerometer calls 'y' is actually left-right horizontal movement
+        center.y + c.y,  // use accel up/down for screen y axis
+        c.size,
+        c.size); // draws circle
+    } // for
+    //   fill(colorCounter % 255, 100, 255, (colorCounter + 75) % 255);
+    //   ellipse( center.x + drawPointer.x, center.y + drawPointer.y, drawPointer.z, drawPointer.z);
 } 
 
 function webSocketInvoke() {
